@@ -1,7 +1,12 @@
-let display = document.getElementById('display');
+let display;
 let currentInput = '';
 let previousInput = '';
 let operator = '';
+
+// Initialize display after DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    display = document.getElementById('display');
+});
 
 function appendNumber(num) {
     currentInput += num;
@@ -76,5 +81,7 @@ function deleteLast() {
 }
 
 function updateDisplay() {
-    display.value = currentInput || '0';
+    if (display) {
+        display.value = currentInput || '0';
+    }
 }
